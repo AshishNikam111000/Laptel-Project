@@ -1,0 +1,68 @@
+/* Default CSS file of all Pages */
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    background-color: #060A16;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+}
+
+.Defalutgradient{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(60deg, rgba(6, 10, 22, 0.5) 80%, rgba(198, 0, 255, 0.5) 90%), 
+                linear-gradient(240.44deg, #060A16 80%, #00F0FF 90%);
+    z-index: -1;
+}
+
+
+.narbarMenuIcon, .narbarMenuGrp, .sidebarMenuIcon, .sidebarMenuGrp{
+    color: #00F0FF;
+}
+
+.Link1:hover, .Link2:hover, .Link3:hover, .Link4:hover{
+    background-color: #00eeff7e;
+    border-right: 5px solid #00F0FF;
+    border-left: 5px solid #00F0FF;
+    color: white;
+}
+
+.sideBarShow{
+    position: fixed;
+    background-color: #060A16;
+    top: 0;
+    right: 0;
+    left: 50%;
+    width: 50%;
+    animation-name: sideBarAnimS;
+    animation-duration: 1s;    
+}
+
+.sideBarHide{
+    position: fixed;
+    background-color: #060A16;
+    top: 0;
+    right: 0;
+    left: 100%;
+    width: 50%;
+    animation-name: sideBarAnimH;
+    animation-duration: 1s;
+}
+
+@keyframes sideBarAnimH {
+    from{left: 50%;}
+    to{left: 100%;}
+}
+
+@keyframes sideBarAnimS {
+    from{left: 100%;}
+    to{left: 50%;}
+}

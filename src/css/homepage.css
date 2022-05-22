@@ -1,0 +1,34 @@
+/* CSS file of Home Page */
+
+#Homebtn{
+    height: 100%;
+    width: 100%;
+    background-color: rgb(200, 0, 255);
+    border-right: 3px solid rgba(200, 0, 255, 0.555);
+    border-bottom: 3px solid rgba(200, 0, 255, 0.527);
+    /* drop-shadow(3px 3px 0px rgb(200, 0, 255)); */
+}
+
+#Homebtn:hover{
+    background-color: rgba(198, 0, 255, 0.5);
+    border-right: 3px solid rgb(200, 0, 255);
+    border-bottom: 3px solid rgb(200, 0, 255);
+}
+
+
+.backgroundParticle{
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+
+.HomeContent{
+    align-self: center;
+}
+
+/* @media only screen and (max-width: 768px) {
+    .narbarMenuGrp {
+      visibility: hidden;
+    }
+  } */

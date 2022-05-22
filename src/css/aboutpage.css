@@ -1,0 +1,215 @@
+.RectBOX {
+    position: absolute;
+    overflow: hidden;
+    width: 70%;
+    height: 70%;
+    bottom: 10%;
+    left: 10%;
+    border-radius: 25px;
+    border: 10px solid;
+    border-image: linear-gradient(to left, #00F0FF 0%, #C600FF 100%) 1;
+}
+
+.TEXTBOXTOP {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: -70%;
+}
+
+.TEXTBOXBOTTOM {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    bottom: -80%;
+}
+
+.HolderName {
+    background-color: #ab2330;
+    height: 100px;
+}
+
+.ProfileLinks {
+    background-color: black;
+    height: 100px;
+    width: 200px;
+}
+
+.BookMark {
+    margin-left: auto;
+    transform: scale(65%);
+}
+
+
+.Profile1,
+.Profile2,
+.Profile3,
+.Profile4 {
+    position: fixed;
+    width: 50%;
+    right: -34%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    align-items: center;
+    z-index: 1;
+    color: white;
+}
+
+.Profile1 {
+    top: 20%;
+}
+
+.Profile2 {
+    top: 35%;
+}
+
+.Profile3 {
+    top: 50%;
+}
+
+.Profile4 {
+    top: 65%;
+}
+
+
+/*  */
+body.preload * {
+    animation-duration: 0s !important;
+    -webkit-animation-duration: 0s !important;
+    transition: background-color 0s, opacity 0s, color 0s, width 0s, height 0s, padding 0s, margin 0s !important;
+}
+
+.TextBoxTopShow {
+    top: 0%;
+    animation-name: texttopSanim;
+    animation-duration: 1s;
+}
+
+.TextBoxTopHide {
+    top: -70%;
+    animation-name: texttopHanim;
+    animation-duration: 1s;
+}
+
+.TextBoxBottomShow {
+    bottom: 0%;
+    animation-name: textbottomSanim;
+    animation-duration: 1s;
+}
+
+.TextBoxBottomHide {
+    bottom: -80%;
+    animation-name: textbottomHanim;
+    animation-duration: 1s;
+}
+
+.ProfileCardShow {
+    right: 0;
+    animation-name: profileSanim;
+    animation-duration: 1s;
+}
+
+.ProfileCardHide {
+    right: -34%;
+    animation-name: profileHanim;
+    animation-duration: 1s;
+}
+
+
+@keyframes texttopSanim {
+    from {
+        top: -70%;
+    }
+
+    to {
+        top: 0%;
+    }
+}
+
+@keyframes texttopHanim {
+    from {
+        top: 0%;
+    }
+
+    to {
+        top: -70%;
+    }
+}
+
+@keyframes textbottomSanim {
+    from {
+        bottom: -80%;
+    }
+
+    to {
+        bottom: 0%;
+    }
+}
+
+@keyframes textbottomHanim {
+    from {
+        bottom: 0%;
+    }
+
+    to {
+        bottom: -80%;
+    }
+}
+
+@keyframes profileSanim {
+    from {
+        right: -34%;
+    }
+
+    to {
+        right: 0%;
+    }
+}
+
+@keyframes profileHanim {
+    from {
+        right: 0%;
+    }
+
+    to {
+        right: -34%;
+    }
+}
+
+
+
+
+.GMAIL {
+    position: relative;
+    margin-top: -10%;
+    margin-left: 40%;
+    height: 50%;
+    width: 50%;
+    place-self: center;
+}
+
+.LINKEDIN {
+    position: relative;
+    margin-right: 40%;
+    height: 30%;
+    width: 30%;
+    place-self: center;
+}
+
+.GITHUB {
+    position: relative;
+    margin-bottom: 30%;
+    margin-left: 40%;
+    height: 35%;
+    width: 35%;
+    place-self: center;
+}
+
+.INSTAGRAM {
+    position: relative;
+    margin-bottom: 30%;
+    margin-right: 40%;
+    height: 40%;
+    width: 40%;
+    place-self: center;
+}

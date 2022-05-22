@@ -1,0 +1,69 @@
+/* CSS file of Contact Page */
+
+.ContactContainer{
+    width: 100%;
+    margin-top: 5%;
+    padding-left: 10%;
+    padding-right: 10%;
+    justify-items: center;
+    align-items: center;
+    gap: 15%;
+    height: min-content;
+}
+
+.Contactbtn{
+    color: #00F0FF;
+    background-color: transparent;
+    border: 3px solid #00F0FF;
+    border-radius: 15px;
+    width: 50%;
+    text-align: center;
+}
+
+.ContactForm{
+    background: #171717;
+    box-shadow: 6px 6px 6px rgba(0, 240, 255, 0.50);
+    border-radius: 45px;
+    height: 50%;
+}
+
+.ContactText{
+    text-align: center;
+}
+
+.FooterImage{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    height: 40%;
+    width: 60%;
+    z-index: -1;
+    /* background-color: brown; */
+}
+
+
+form>div:first-child>input{
+    border: 3px solid #00F0FF;
+    border-radius: 15px;
+    background-color: transparent;
+    color: white;
+}
+
+form>div:first-child>label{
+    color: #00F0FF;
+}
+
+@media only screen and (max-width: 768px) {
+    .ContactForm{
+        height: 30%;
+        width: 80%;
+        font-size: 15px;
+    }
+    .ContactText:nth-child(1){
+        font-size: 15px;
+    }
+    .FooterImage{
+        height: 60%;
+        width: 40%;
+    }
+  }

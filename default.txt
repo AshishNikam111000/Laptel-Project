@@ -1,0 +1,5 @@
+1) default in package.json:-
+
+"start": "react-scripts start",
+"build": "react-scripts build",
+"test": "react-scripts test",

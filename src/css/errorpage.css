@@ -1,0 +1,46 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300&display=swap');
+.ErrorPageContainer{
+    background-color: #223b42;
+	font-family: 'Quicksand', sans-serif;
+}
+
+.ErrorTable{
+    width: 40%;
+    height: 50%;
+}
+
+.ErrorTable tr td {
+    border: 5px solid #223b42;
+    border-collapse: collapse;
+}
+
+.ErrorTable > tr > td {
+    padding: 10px;
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+.ErrorData{
+    height: 70%;
+}
+
+.EL1, .EL2,  .EL3, .EL4{
+    padding: 10px;
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+.EL1:hover{
+    background-color: rgba(26,188,156,0.7);
+    transition: background-color 0.5s ease;
+}
+.EL2:hover{
+    background-color: rgba(26,188,156,0.7);
+    transition: background-color 0.5s ease;
+}
+.EL3:hover{
+    background-color: rgba(26,188,156,0.7);
+    transition: background-color 0.5s ease;
+}
+.EL4:hover{
+    background-color: rgba(26,188,156,0.7);
+    transition: background-color 0.5s ease;
+}
