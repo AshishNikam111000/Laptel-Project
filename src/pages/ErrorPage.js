@@ -6,24 +6,24 @@ import gsap from 'gsap'
 const ErrorPage = () => {
 
     useEffect(() => {
-        var t1 = gsap.timeline({repeat: -1});
-        t1.fromTo(".one", {backgroundColor:"rgba(0, 0, 0, 0.3)"}, { duration: 0.4, backgroundColor:"rgba(26,188,156,0.7)"})
-            .fromTo(".two", {backgroundColor:"rgba(0, 0, 0, 0.3)"}, { duration: 0.4, backgroundColor:"rgba(26,188,156,0.7)"})
-            .fromTo(".three", {backgroundColor:"rgba(0, 0, 0, 0.3)"}, { duration: 0.4, backgroundColor:"rgba(26,188,156,0.7)"})
-            .fromTo(".four", {backgroundColor:"rgba(0, 0, 0, 0.3)"}, { duration: 0.4, backgroundColor:"rgba(26,188,156,0.7)"})
-            .fromTo(".five", {backgroundColor:"rgba(0, 0, 0, 0.3)"}, { duration: 0.4, backgroundColor:"rgba(26,188,156,0.7)"})
-            .fromTo(".six", {backgroundColor:"rgba(0, 0, 0, 0.3)"}, { duration: 0.4, backgroundColor:"rgba(26,188,156,0.7)"})
-            .fromTo(".seven", {backgroundColor:"rgba(0, 0, 0, 0.3)"}, { duration: 0.4, backgroundColor:"rgba(26,188,156,0.7)"})
-            .fromTo(".eight", {backgroundColor:"rgba(0, 0, 0, 0.3)"}, { duration: 0.4, backgroundColor:"rgba(26,188,156,0.7)"})
-            .fromTo(".nine", {backgroundColor:"rgba(0, 0, 0, 0.3)"}, { duration: 0.4, backgroundColor:"rgba(26,188,156,0.7)"})
-            .fromTo(".ten", {backgroundColor:"rgba(0, 0, 0, 0.3)"}, { duration: 0.4, backgroundColor:"rgba(26,188,156,0.7)"})
-            .fromTo(".eleven", {backgroundColor:"rgba(0, 0, 0, 0.3)"}, { duration: 0.4, backgroundColor:"rgba(26,188,156,0.7)"})
-            .fromTo(".twelve", {backgroundColor:"rgba(0, 0, 0, 0.3)"}, { duration: 0.4, backgroundColor:"rgba(26,188,156,0.7)"})
-            .fromTo(".thirteen", {backgroundColor:"rgba(0, 0, 0, 0.3)"}, { duration: 0.4, backgroundColor:"rgba(26,188,156,0.7)"})
-            .fromTo(".fourteen", {backgroundColor:"rgba(0, 0, 0, 0.3)"}, { duration: 0.4, backgroundColor:"rgba(26,188,156,0.7)"})
-            .fromTo(".fifteen", {backgroundColor:"rgba(0, 0, 0, 0.3)"}, { duration: 0.4, backgroundColor:"rgba(26,188,156,0.7)"})
-            
-    },[])
+        var t1 = gsap.timeline({ repeat: -1 });
+        t1.fromTo(".one", { backgroundColor: "rgba(0, 0, 0, 0.3)" }, { duration: 0.4, backgroundColor: "rgba(26,188,156,0.7)" })
+            .fromTo(".two", { backgroundColor: "rgba(0, 0, 0, 0.3)" }, { duration: 0.4, backgroundColor: "rgba(26,188,156,0.7)" })
+            .fromTo(".three", { backgroundColor: "rgba(0, 0, 0, 0.3)" }, { duration: 0.4, backgroundColor: "rgba(26,188,156,0.7)" })
+            .fromTo(".four", { backgroundColor: "rgba(0, 0, 0, 0.3)" }, { duration: 0.4, backgroundColor: "rgba(26,188,156,0.7)" })
+            .fromTo(".five", { backgroundColor: "rgba(0, 0, 0, 0.3)" }, { duration: 0.4, backgroundColor: "rgba(26,188,156,0.7)" })
+            .fromTo(".six", { backgroundColor: "rgba(0, 0, 0, 0.3)" }, { duration: 0.4, backgroundColor: "rgba(26,188,156,0.7)" })
+            .fromTo(".seven", { backgroundColor: "rgba(0, 0, 0, 0.3)" }, { duration: 0.4, backgroundColor: "rgba(26,188,156,0.7)" })
+            .fromTo(".eight", { backgroundColor: "rgba(0, 0, 0, 0.3)" }, { duration: 0.4, backgroundColor: "rgba(26,188,156,0.7)" })
+            .fromTo(".nine", { backgroundColor: "rgba(0, 0, 0, 0.3)" }, { duration: 0.4, backgroundColor: "rgba(26,188,156,0.7)" })
+            .fromTo(".ten", { backgroundColor: "rgba(0, 0, 0, 0.3)" }, { duration: 0.4, backgroundColor: "rgba(26,188,156,0.7)" })
+            .fromTo(".eleven", { backgroundColor: "rgba(0, 0, 0, 0.3)" }, { duration: 0.4, backgroundColor: "rgba(26,188,156,0.7)" })
+            .fromTo(".twelve", { backgroundColor: "rgba(0, 0, 0, 0.3)" }, { duration: 0.4, backgroundColor: "rgba(26,188,156,0.7)" })
+            .fromTo(".thirteen", { backgroundColor: "rgba(0, 0, 0, 0.3)" }, { duration: 0.4, backgroundColor: "rgba(26,188,156,0.7)" })
+            .fromTo(".fourteen", { backgroundColor: "rgba(0, 0, 0, 0.3)" }, { duration: 0.4, backgroundColor: "rgba(26,188,156,0.7)" })
+            .fromTo(".fifteen", { backgroundColor: "rgba(0, 0, 0, 0.3)" }, { duration: 0.4, backgroundColor: "rgba(26,188,156,0.7)" })
+
+    }, [])
 
 
     return (
@@ -65,7 +65,13 @@ const ErrorPage = () => {
 
                 <div className='.Links flex flex-row gap-2 text-sm'>
                     <Link className='EL1' to="/home" > Home </Link>
-                    <Link className='EL2' to="/search" > Search </Link>
+                    <Link className='EL2'
+                        to={{
+                            pathname: "/search",
+                            state: {
+                                InfoStatus: true
+                            }
+                        }} > Search </Link>
                     <Link className='EL3' to="/about" > About Us </Link>
                     <Link className='EL4' to="/contact" > Contact Us </Link>
                 </div>

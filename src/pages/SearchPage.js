@@ -13,7 +13,7 @@ import ProfessionalBlack from '../images/SVG/laptop_mac_black_24dp.svg'
 
 import VFXWhite from '../images/SVG/crop_original_white_24dp.svg'
 import VFXBlack from '../images/SVG/crop_original_black_24dp.svg'
-import { Link, Redirect } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 
 function SearchPage() {
     const game = ['Gaming laptop means high speed, huge memory, better graphics, and fast processing power.',
@@ -89,11 +89,10 @@ function SearchPage() {
         setProHover(false)
     }
 
-
     const [Gbudget, setGBudget] = useState();
     const [Pbudget, setPBudget] = useState();
     const [Vbudget, setVBudget] = useState();
-
+    
     function changeGBudget() {
         setGBudget(document.getElementById("GBudget").value);
     }
@@ -104,142 +103,165 @@ function SearchPage() {
         setVBudget(document.getElementById("VBudget").value);
     }
 
+    const [Info, setInfo] = useState(true);
+    const location = useLocation();
+    function toggleInfo() {
+        setInfo(false);
+    }
+
     return (
         <>
             <div className="Defalutgradient overflow-y-hidden overflow-x-hidden">
                 <Navbar />
-                <div className="flex h-screen justify-evenly">
-                    <div className="Container rounded-2xl">
-                        <button className={GameHover ? "CardContainerHhover rounded-2xl" : "CardContainer rounded-2xl"}
-                            onClick={GameToggleClick}
-                            onMouseOver={GameToggleHover}
-                            onMouseOut={GameToggleHoverOUT}
-                        >
-                            <div className={GameClick ? "hidden" : "Gaming"} >
-                                <img className={GameHover ? "hidden" : "GamingLogo"} src={GamingWhite} alt="WhiteLogo" />
-                                <img className={!GameHover ? "hidden" : "GamingLogo"} src={GamingBlack} alt="BlackLogo" />
-                            </div>
-
-                            <div className={GameClick ? "hidden" : GameHover ? "TEXThover text-3xl" : "TEXT text-3xl"}  >
-                                {"Gaming"}
-                            </div>
-                            <div className={GameClick ? "flex flex-row justify-evenly " : "hidden"} >
-                                <div>
-                                    <img className="BlackGamingLogo" src={GamingBlack} alt="ClickedLogo" />
-                                </div>
-                                <div className="ClickedTEXT text-3xl" >
-                                    {"Gaming"}
-                                </div>
-                            </div>
-                            <p className={GameClick ? "Description" : "hidden"} >
-                                {game}
+                {
+                    Info && location.state.InfoStatus ?
+                        <div className='InfoRectBOX text-white p-10 pl-20 pr-20 flex flex-col justify-center'>
+                            <p className='text-4xl mb-4'>
+                                Instructions
                             </p>
-                        </button>
-                        <div className={GameClick ? "INPUT flex flex-col cursor-pointer" : "hidden"} >
-                            <input className="InsideINPUT rounded-2xl text-2xl" type="number" name="Budget" id="GBudget" min={0} onChangeCapture={changeGBudget} />
-                            <Link className="InsideINPUT rounded-xl mt-2"
-                                to={{
-                                    pathname: "/product",
-                                    state: {
-                                        user_category: "Gaming",
-                                        user_budget: Gbudget
-                                    }
-                                }}
-                            >
-                                <p className="px-4 py-1">ENTER</p>
-                            </Link>
+                            <ul className='text-2xl list-disc leading-loose pb-5'>
+                                <li>Choose the laptop <span className="text-pink-400 font-bold"> category </span> of your choice and enter your <span className="text-pink-400 font-bold"> budget </span>.</li>
+                                <li>The list will contain laptops ranging from <span className="text-pink-400 font-bold"> +/- 10 thousand </span> of your budget.</li>
+                                <li> <span className="text-pink-400 font-bold"> Alternate suggestion </span> will be provided, so you can go for them also.</li>
+                            </ul>
+                            <div className='flex flex-row w-full justify-end'>
+                                <button className='bg-purple-500 rounded-full p-1 pl-2 pr-2 border-b-4 border-r-4 border-purple-700' onClick={toggleInfo}>
+                                    Get Started
+                                </button>
+                            </div>
                         </div>
-                    </div>
+                        :
+                        <div className="flex h-screen justify-evenly">
+                            <div className="Container rounded-2xl">
+                                <button className={GameHover ? "CardContainerHhover rounded-2xl" : "CardContainer rounded-2xl"}
+                                    onClick={GameToggleClick}
+                                    onMouseOver={GameToggleHover}
+                                    onMouseOut={GameToggleHoverOUT}
+                                >
+                                    <div className={GameClick ? "hidden" : "Gaming"} >
+                                        <img className={GameHover ? "hidden" : "GamingLogo"} src={GamingWhite} alt="WhiteLogo" />
+                                        <img className={!GameHover ? "hidden" : "GamingLogo"} src={GamingBlack} alt="BlackLogo" />
+                                    </div>
 
-                    {/*  */}
-
-                    <div className="Container rounded-2xl">
-                        <button className={ProHover ? "CardContainerHhover rounded-2xl" : "CardContainer rounded-2xl"}
-                            onClick={ProToggleClick}
-                            onMouseOver={ProToggleHover}
-                            onMouseOut={ProToggleHoverOUT}
-                        >
-                            <div className={ProClick ? "hidden" : "Gaming"} >
-                                <img className={ProHover ? "hidden" : "GamingLogo"} src={ProfessionalWhite} alt="WhiteLogo" />
-                                <img className={!ProHover ? "hidden" : "GamingLogo"} src={ProfessionalBlack} alt="BlackLogo" />
-                            </div>
-
-                            <div className={ProClick ? "hidden" : ProHover ? "TEXThover text-3xl" : "TEXT text-3xl"}  >
-                                {"Professional"}
-                            </div>
-                            <div className={ProClick ? "flex flex-row justify-evenly " : "hidden"} >
-                                <div>
-                                    <img className="BlackGamingLogo" src={ProfessionalBlack} alt="ClickedLogo" />
+                                    <div className={GameClick ? "hidden" : GameHover ? "TEXThover text-3xl" : "TEXT text-3xl"}  >
+                                        {"Gaming"}
+                                    </div>
+                                    <div className={GameClick ? "flex flex-row justify-evenly " : "hidden"} >
+                                        <div>
+                                            <img className="BlackGamingLogo" src={GamingBlack} alt="ClickedLogo" />
+                                        </div>
+                                        <div className="ClickedTEXT text-3xl" >
+                                            {"Gaming"}
+                                        </div>
+                                    </div>
+                                    <p className={GameClick ? "Description" : "hidden"} >
+                                        {game}
+                                    </p>
+                                </button>
+                                <div className={GameClick ? "INPUT flex flex-col cursor-pointer" : "hidden"} >
+                                    <input className="InsideINPUT rounded-2xl text-2xl" type="number" name="Budget" id="GBudget" min={0} onChangeCapture={changeGBudget} />
+                                    <Link className="InsideINPUT rounded-xl mt-2"
+                                        to={{
+                                            pathname: "/product",
+                                            state: {
+                                                user_category: "Gaming",
+                                                user_budget: Gbudget
+                                            }
+                                        }}
+                                    >
+                                        <p className="px-4 py-1">ENTER</p>
+                                    </Link>
                                 </div>
-                                <div className="ClickedTEXT text-3xl" >
-                                    {"Professional"}
+                            </div>
+
+
+                            <div className="Container rounded-2xl">
+                                <button className={ProHover ? "CardContainerHhover rounded-2xl" : "CardContainer rounded-2xl"}
+                                    onClick={ProToggleClick}
+                                    onMouseOver={ProToggleHover}
+                                    onMouseOut={ProToggleHoverOUT}
+                                >
+                                    <div className={ProClick ? "hidden" : "Gaming"} >
+                                        <img className={ProHover ? "hidden" : "GamingLogo"} src={ProfessionalWhite} alt="WhiteLogo" />
+                                        <img className={!ProHover ? "hidden" : "GamingLogo"} src={ProfessionalBlack} alt="BlackLogo" />
+                                    </div>
+
+                                    <div className={ProClick ? "hidden" : ProHover ? "TEXThover text-3xl" : "TEXT text-3xl"}  >
+                                        {"Professional"}
+                                    </div>
+                                    <div className={ProClick ? "flex flex-row justify-evenly " : "hidden"} >
+                                        <div>
+                                            <img className="BlackGamingLogo" src={ProfessionalBlack} alt="ClickedLogo" />
+                                        </div>
+                                        <div className="ClickedTEXT text-3xl" >
+                                            {"Professional"}
+                                        </div>
+                                    </div>
+                                    <p className={ProClick ? "Description" : "hidden"} >
+                                        {pro}
+                                    </p>
+                                </button>
+                                <div className={ProClick ? "INPUT flex flex-col cursor-pointer" : "hidden"} >
+                                    <input className="InsideINPUT rounded-2xl text-2xl" type="number" name="Budget" id="PBudget" min={0} onChangeCapture={changePBudget} />
+                                    <Link className="InsideINPUT rounded-xl mt-2"
+                                        to={{
+                                            pathname: "/product",
+                                            state: {
+                                                user_category: "Professional",
+                                                user_budget: Pbudget
+                                            }
+                                        }}
+                                    >
+                                        <p className="px-4 py-1">ENTER</p>
+                                    </Link>
                                 </div>
                             </div>
-                            <p className={ProClick ? "Description" : "hidden"} >
-                                {pro}
-                            </p>
-                        </button>
-                        <div className={ProClick ? "INPUT flex flex-col cursor-pointer" : "hidden"} >
-                            <input className="InsideINPUT rounded-2xl text-2xl" type="number" name="Budget" id="PBudget" min={0} onChangeCapture={changePBudget} />
-                            <Link className="InsideINPUT rounded-xl mt-2"
-                                to={{
-                                    pathname: "/product",
-                                    state: {
-                                        user_category: "Professional",
-                                        user_budget: Pbudget
-                                    }
-                                }}
-                            >
-                                <p className="px-4 py-1">ENTER</p>
-                            </Link>
+
+
+                            <div className="Container rounded-2xl">
+                                <button className={VFXHover ? "CardContainerHhover rounded-2xl" : "CardContainer rounded-2xl"}
+                                    onClick={VFXToggleClick}
+                                    onMouseOver={VFXToggleHover}
+                                    onMouseOut={VFXToggleHoverOUT}
+                                >
+                                    <div className={VFXClick ? "hidden" : "Gaming"} >
+                                        <img className={VFXHover ? "hidden" : "GamingLogo"} src={VFXWhite} alt="WhiteLogo" />
+                                        <img className={!VFXHover ? "hidden" : "GamingLogo"} src={VFXBlack} alt="BlackLogo" />
+                                    </div>
+
+                                    <div className={VFXClick ? "hidden" : VFXHover ? "TEXThover text-3xl" : "TEXT text-3xl"}  >
+                                        {"VFX"}
+                                    </div>
+                                    <div className={VFXClick ? "flex flex-row justify-evenly " : "hidden"} >
+                                        <div>
+                                            <img className="BlackGamingLogo" src={VFXBlack} alt="ClickedLogo" />
+                                        </div>
+                                        <div className="ClickedTEXT text-3xl" >
+                                            {"VFX"}
+                                        </div>
+                                    </div>
+                                    <p className={VFXClick ? "Description" : "hidden"} >
+                                        {vfx}
+                                    </p>
+                                </button>
+                                <div className={VFXClick ? "INPUT flex flex-col cursor-pointer" : "hidden"} >
+                                    <input className="InsideINPUT rounded-2xl text-2xl" type="number" name="Budget" id="VBudget" min={0} onChangeCapture={changeVBudget} />
+                                    <Link className="InsideINPUT rounded-xl mt-2"
+                                        to={{
+                                            pathname: "/product",
+                                            state: {
+                                                user_category: "VFX",
+                                                user_budget: Vbudget
+                                            }
+                                        }}
+                                    >
+                                        <p className="px-4 py-1">ENTER</p>
+                                    </Link>
+                                </div>
+                            </div>
+
                         </div>
-                    </div>
-
-                    {/*  */}
-
-                    <div className="Container rounded-2xl">
-                        <button className={VFXHover ? "CardContainerHhover rounded-2xl" : "CardContainer rounded-2xl"}
-                            onClick={VFXToggleClick}
-                            onMouseOver={VFXToggleHover}
-                            onMouseOut={VFXToggleHoverOUT}
-                        >
-                            <div className={VFXClick ? "hidden" : "Gaming"} >
-                                <img className={VFXHover ? "hidden" : "GamingLogo"} src={VFXWhite} alt="WhiteLogo" />
-                                <img className={!VFXHover ? "hidden" : "GamingLogo"} src={VFXBlack} alt="BlackLogo" />
-                            </div>
-
-                            <div className={VFXClick ? "hidden" : VFXHover ? "TEXThover text-3xl" : "TEXT text-3xl"}  >
-                                {"VFX"}
-                            </div>
-                            <div className={VFXClick ? "flex flex-row justify-evenly " : "hidden"} >
-                                <div>
-                                    <img className="BlackGamingLogo" src={VFXBlack} alt="ClickedLogo" />
-                                </div>
-                                <div className="ClickedTEXT text-3xl" >
-                                    {"VFX"}
-                                </div>
-                            </div>
-                            <p className={VFXClick ? "Description" : "hidden"} >
-                                {vfx}
-                            </p>
-                        </button>
-                        <div className={VFXClick ? "INPUT flex flex-col cursor-pointer" : "hidden"} >
-                            <input className="InsideINPUT rounded-2xl text-2xl" type="number" name="Budget" id="VBudget" min={0} onChangeCapture={changeVBudget} />
-                            <Link className="InsideINPUT rounded-xl mt-2"
-                                to={{
-                                    pathname: "/product",
-                                    state: {
-                                        user_category: "VFX",
-                                        user_budget: Vbudget
-                                    }
-                                }}
-                            >
-                                <p className="px-4 py-1">ENTER</p>
-                            </Link>
-                        </div>
-                    </div>
-
-                </div>
+                }
             </div>
         </>
     )

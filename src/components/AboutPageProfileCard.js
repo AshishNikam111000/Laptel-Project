@@ -24,7 +24,8 @@ const AboutPageProfileCard = (props) => {
     return (
         <div className={props.isClicked ? props.classShow : props.classHide}>
             <button className="BookMark" onClick={props.toggle}>
-                <svg width="129" height="158" viewBox="0 0 129 158" fill={"rgba(200, 200, 200)"} xmlns="http://www.w3.org/2000/svg">
+                <div className={props.styles}>{props.initial}</div>
+                <svg width="129" height="158" viewBox="0 0 129 158" fill={"rgb(20,20,20)"} xmlns="http://www.w3.org/2000/svg">
                     <path d="M11.3004 65.6714L99.8985 6.83328C110.533 -0.229279 124.75 7.39558 124.75 20.1618V137.838C124.75 150.604 110.533 158.229 99.8985 151.167L11.3004 92.3286C1.76913 85.9988 1.76913 72.0012 11.3004 65.6714Z" stroke="url(#paint0_linear)" stroke-width="8" />
                     <defs>
                         <linearGradient id="paint0_linear" x1="-16" y1="79" x2="128.091" y2="78.9881" gradientUnits="userSpaceOnUse">

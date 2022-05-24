@@ -96,3 +96,16 @@
 .InsideINPUT::-webkit-inner-spin-button{
     appearance: none;
 }
+
+
+.InfoRectBOX{
+    position: relative;
+    width: fit-content;
+    height: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10%;
+    border-radius: 25px;
+    border: 10px solid;
+    border-image: linear-gradient(to left, #00F0FF 0%, #C600FF 100%) 1;
+}

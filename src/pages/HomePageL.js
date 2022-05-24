@@ -1,5 +1,6 @@
+/* eslint-disable eqeqeq */
 /* eslint-disable no-unused-vars */
-import React, {useState, useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 import HomePageContent from '../components/HomePageContent';
 import Particle from '../components/ParticleComponent'
 import Navbar from '../components/Navbar';
@@ -9,14 +10,14 @@ import Loading from './Loading';
 
 const HomePage = () => {
     const [show, setShow] = useState(true)
-  
+
     useEffect(() => {
-      setTimeout(() => {
-        setShow(false) 
-      }, 7000)
+        setTimeout(() => {
+            setShow(false)
+        }, 7000)
     }, [])
-  
-    if (show) return( <Loading /> )  
+
+    if (show) return (<Loading />)
     return (
         <>
             <div className="HomePageContainer">

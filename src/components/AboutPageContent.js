@@ -86,6 +86,38 @@ const AboutPageContent = () => {
             <AboutPageProfileCard
                 classShow="Profile1 ProfileCardShow"
                 classHide="Profile1 ProfileCardHide"
+                name="PRITHVI KRISHNA SONAR"
+
+                gmail="prithvisonar11@gmail.com"
+                linkedin="http://www.linkedin.com/in/prithvi-sonar-373023133"
+                github="https://github.com/PSBEAST"
+                InstaCheck={false}
+                initial = {'P'}
+                styles = {'absolute text-7xl bottom-12 right-7 text-cyan-300'}
+
+                isClicked={second}
+                toggle={toggletwo}
+            />
+
+            <AboutPageProfileCard                
+                classShow="Profile2 ProfileCardShow"
+                classHide="Profile2 ProfileCardHide"
+                name="UMANG RAMASHISH THAKUR"
+
+                gmail="umangramthakur@gmail.com"
+                linkedin="https://www.linkedin.com/in/umang-thakur-3665771a2/"
+                github="https://github.com/Umang-Thakur"
+                InstaCheck={false}
+                initial = {'U'}
+                styles = {'absolute text-7xl bottom-11 right-6 text-cyan-300'}
+
+                isClicked={thrid}
+                toggle={togglethree}
+            />
+
+            <AboutPageProfileCard
+                classShow="Profile3 ProfileCardShow"
+                classHide="Profile3 ProfileCardHide"
                 name="TANAY WASEKAR"
 
                 gmail="tanaywasekar30@gmail.com"
@@ -93,37 +125,11 @@ const AboutPageContent = () => {
                 github=""
                 instagram="http://instagram.com/tanay_wasekar"
                 InstaCheck={true}
+                initial = {'T'}
+                styles = {'absolute text-7xl bottom-11 right-7 text-cyan-300'}
 
                 isClicked={first}
                 toggle={toggleone}
-            />
-
-            <AboutPageProfileCard
-                classShow="Profile2 ProfileCardShow"
-                classHide="Profile2 ProfileCardHide"
-                name="PRITHVI KRISHNA SONAR"
-
-                gmail="prithvisonar11@gmail.com"
-                linkedin="http://www.linkedin.com/in/prithvi-sonar-373023133"
-                github="https://github.com/PSBEAST"
-                InstaCheck={false}
-
-                isClicked={second}
-                toggle={toggletwo}
-            />
-
-            <AboutPageProfileCard
-                classShow="Profile3 ProfileCardShow"
-                classHide="Profile3 ProfileCardHide"
-                name="UMANG RAMASHISH THAKUR"
-
-                gmail="umangramthakur@gmail.com"
-                linkedin="https://www.linkedin.com/in/umang-thakur-3665771a2/"
-                github="https://github.com/Umang-Thakur"
-                InstaCheck={false}
-
-                isClicked={thrid}
-                toggle={togglethree}
             />
 
             <AboutPageProfileCard
@@ -132,9 +138,11 @@ const AboutPageContent = () => {
                 name="NIKAM ASHISH DATTATRAY"
 
                 gmail="nikamashish1125@gmail.com"
-                linkedin="https://www.linkedin.com/in/ashish-nikam-821475137/"
+                linkedin="https://www.linkedin.com/in/ashish-nikam-821475137"
                 github="https://github.com/AshishNikam111000"
                 InstaCheck={false}
+                initial = {'A'}
+                styles = {'absolute text-7xl mb-1 bottom-12 right-6 text-cyan-300'}
 
                 isClicked={fourth}
                 toggle={togglefour}

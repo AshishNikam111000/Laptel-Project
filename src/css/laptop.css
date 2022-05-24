@@ -1,24 +1,27 @@
 ::-webkit-scrollbar {
     width: 10px;
-  }
-::-webkit-scrollbar-track{
+}
+
+::-webkit-scrollbar-track {
     background-color: rgba(0, 0, 0, 0);
     border-radius: 10px;
 }
+
 ::-webkit-scrollbar-thumb {
     background: #00F0FF;
     border-radius: 10px;
 }
+
 ::-webkit-scrollbar-thumb:hover {
     background: #008b8b;
 }
 
 /*  */
 
-.SearchRectBOX{
+.SearchRectBOX {
     position: relative;
     width: 90%;
-    height: 90%;
+    height: fit-content;
     margin-left: auto;
     margin-right: auto;
     border-radius: 25px;
@@ -26,43 +29,50 @@
     border-image: linear-gradient(to left, #00F0FF 0%, #C600FF 100%) 1;
 }
 
-.laptopContainer{
+.laptopContainer {
     width: 100%;
     height: 100%;
 }
-.laptopImage{
+
+.laptopImage {
     height: 150px;
     width: 250px;
 }
 
-.LaptDescTable, .LaptDescTable > div{
+.LaptDescTable,
+.LaptDescTable>div {
     width: 250px;
 }
-.LaptDescTable>div>div:nth-child(odd){
-   width: 150px;
+
+.LaptDescTable>div>div:nth-child(odd) {
+    width: 150px;
 }
-.LaptDescTable>div>div:nth-child(even){
+
+.LaptDescTable>div>div:nth-child(even) {
     white-space: nowrap;
     overflow: hidden;
     width: 250px;
     text-overflow: ellipsis;
 }
-.laptopScore{
+
+.laptopScore {
     font-size: smaller;
 }
 
 
 /*  */
-.specsContainer{
-    width: 50%; 
+.specsContainer {
+    width: 50%;
 }
-.specsImage{
-    margin:10px 10px 10px 10px;
-    width:100%;
+
+.specsImage {
+    margin: 10px 10px 10px 10px;
+    width: 100%;
     height: 200px;
 
 }
-.specsTable{
+
+.specsTable {
     border-spacing: 2rem;
 }
 
@@ -70,11 +80,73 @@
 /*  */
 
 
-.LaptopModelCanvas{
+.LaptopModelCanvas {
     width: 50%;
 }
 
-.LaptopModel{
+.LaptopModel {
     width: 50%;
     height: 60%;
+}
+
+.SimilarLaptopBox {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    background: linear-gradient(60deg, rgba(6, 10, 22, 0.5) 80%, rgba(198, 0, 255, 0.5) 90%),
+        linear-gradient(240.44deg, #060A16 80%, #00F0FF 90%);
+    max-height: 90%;
+}
+
+.SimilarLaptopsBtn {
+    background: #017374;
+    color: #D0FEFE;
+}
+
+.SimilarLaptopsBtn:hover {
+    background: #002829;
+    color: #00ffff;
+}
+
+.SimilarLaptopShadowBox {
+    position: fixed;
+    top: 0%;
+    left: 0%;
+}
+
+.tooltip {
+    position: relative;
+    display: inline-block;
+}
+
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 200px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    position: absolute;
+    z-index: 1;
+    bottom: 150%;
+    left: 50%;
+    margin-left: -100px;
+}
+
+.tooltip .tooltiptext::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: black transparent transparent transparent;
+}
+
+.tooltip:hover .tooltiptext {
+    visibility: visible;
 }

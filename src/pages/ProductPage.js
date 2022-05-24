@@ -2,14 +2,13 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable no-unused-vars */
 import React, { useEffect, useState } from 'react'
-import { useHistory, useLocation } from "react-router-dom";
+import { Link, useHistory, useLocation } from "react-router-dom";
 import Navbar from '../components/Navbar'
 import LaptopCard from '../components/LaptopCard'
 import '../css/default.css'
 import '../css/searchpage.css'
 
 import { TiArrowBackOutline } from 'react-icons/ti'
-import { Link } from 'react-router-dom'
 import axios from 'axios';
 
 function ProductPage() {
@@ -34,7 +33,10 @@ function ProductPage() {
     const history = useHistory();
     const routeChange = () => {
         let path = `/search`;
-        history.push(path);
+        history.push({
+            pathname: path,
+            state: { InfoStatus: false }
+        });
     }
     return (
         <>
@@ -43,52 +45,53 @@ function ProductPage() {
                 <div className='flex-row mt-10 justify-center items-center'>
                     <TiArrowBackOutline className='h-12 w-12 mb-5 ml-16 bg-white rounded-3xl pb-1 cursor-pointer' onClick={routeChange} />
                     {
-                        errorStatus == 500 ?
+                        location.state.user_budget == undefined ?
                             <>
                                 <div className='SearchRectBOX p-5 text-white text-center text-3xl'>
                                     <div className='mb-5'>
-                                        Whoops! Looks like there is a technical issue at the server side.
+                                        Whoops! Looks like you haven't entered any budget.
                                     </div>
-                                    Sorry for the inconvenience. Please try after some time.
+                                    Please enter a budget for suggestions.
                                 </div>
                             </>
-                            : errorStatus == 204 ?
+                            :
+                            errorStatus == 500 ?
                                 <>
                                     <div className='SearchRectBOX p-5 text-white text-center text-3xl'>
                                         <div className='mb-5'>
-                                            There are no laptops available at this moment according to your budget and category.
+                                            Whoops! Looks like there is a technical issue at the server side.
                                         </div>
-                                        Please try with different set of inputs.
+                                        Sorry for the inconvenience. Please try after some time.
                                     </div>
                                 </>
-                                :
-                                <div className="SearchRectBOX p-5 mb-10 grid grid-cols-4 gap-4">
-                                    {
-                                        listOfLaptops.map((laptop) => {
-                                            return (
-                                                <>
-                                                    <Link
-                                                        to={{
-                                                            pathname: "/product/" + laptop.id,
-                                                            state: {
-                                                                user_category: location.state.user_category,
-                                                                user_budget: location.state.user_budget,
-                                                                maxScore: listOfLaptops[0].score,
-                                                                minScore: listOfLaptops[listOfLaptops.length-1].score
-                                                            }
-                                                        }}
-                                                    >
+                                : errorStatus == 204 ?
+                                    <>
+                                        <div className='SearchRectBOX p-5 text-white text-center text-3xl'>
+                                            <div className='mb-5'>
+                                                There are no laptops available at this moment according to your budget and category.
+                                            </div>
+                                            Please try with different set of inputs.
+                                        </div>
+                                    </>
+                                    :
+                                    <div className="SearchRectBOX p-5 mb-10 grid grid-cols-4 gap-4">
+                                        {
+                                            listOfLaptops.map((laptop) => {
+                                                return (
+                                                    <>
                                                         <LaptopCard
                                                             Laptop={laptop}
-                                                            maxScore = {listOfLaptops[0].score}
-                                                            minScore = {listOfLaptops[listOfLaptops.length-1].score}
+                                                            user_category={location.state.user_category}
+                                                            user_budget={location.state.user_budget}
+                                                            maxScore={listOfLaptops[0].score}
+                                                            minScore={listOfLaptops[listOfLaptops.length - 1].score}
+                                                            BtnShow = {laptop.similar.length == 0 || location.state.user_category == 'Gaming' ? false : true}
                                                         />
-                                                    </Link>
-                                                </>
-                                            )
-                                        })
-                                    }
-                                </div>
+                                                    </>
+                                                )
+                                            })
+                                        }
+                                    </div>
                     }
                 </div>
             </div>

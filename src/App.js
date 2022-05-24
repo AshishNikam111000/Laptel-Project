@@ -17,12 +17,19 @@ function App() {
       <Switch>
           <Route path="/" exact component={HomePageL} />
           <Route path="/home" exact component={HomePage} />
-          <Route path="/search" component={SearchPage} />
+          <Route path="/search" exact component={SearchPage} />
           <Route path="/product/:id" component={ProductDetailPage} />
-          <Route path="/product" component={ProductPage} />
-          <Route path="/about" component={AboutPage} />
-          <Route path="/contact" component={ContactPage} />
+          <Route path="/product" exact component={ProductPage} />
+          <Route path="/about" exact component={AboutPage} />
+          <Route path="/contact" exact component={ContactPage} />
+          
           <Route path="/*" component={ErrorPage} />
+          <Route path="/home/*" component={ErrorPage} />
+          <Route path="/search/*" component={ErrorPage} />
+          <Route path="/product/:id/*" component={ErrorPage} />
+          <Route path="/product/*" component={ErrorPage} />
+          <Route path="/about/*" component={ErrorPage} />
+          <Route path="/contact/*" component={ErrorPage} />
       </Switch>
     </>
   );
