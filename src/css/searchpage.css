@@ -94,7 +94,11 @@
 
 .InsideINPUT::-webkit-outer-spin-button,
 .InsideINPUT::-webkit-inner-spin-button{
-    appearance: none;
+    -webkit-appearance: none;
+}
+
+.InsideINPUT[type=number] {
+  -moz-appearance: textfield;
 }
 
 

@@ -121,11 +121,11 @@ function SearchPage() {
                             </p>
                             <ul className='text-2xl list-disc leading-loose pb-5'>
                                 <li>Choose the laptop <span className="text-pink-400 font-bold"> category </span> of your choice and enter your <span className="text-pink-400 font-bold"> budget </span>.</li>
-                                <li>The list will contain laptops ranging from <span className="text-pink-400 font-bold"> +/- 10 thousand </span> of your budget.</li>
+                                <li>The list will contain laptops ranging from <span className="text-pink-400 font-bold"> +/- 5 thousand </span> of your budget.</li>
                                 <li> <span className="text-pink-400 font-bold"> Alternate suggestion </span> will be provided, so you can go for them also.</li>
                             </ul>
                             <div className='flex flex-row w-full justify-end'>
-                                <button className='bg-purple-500 rounded-full p-1 pl-2 pr-2 border-b-4 border-r-4 border-purple-700' onClick={toggleInfo}>
+                                <button className='bg-purple-800 text-xl rounded-full p-1 pl-4 pr-4' onClick={toggleInfo}>
                                     Get Started
                                 </button>
                             </div>

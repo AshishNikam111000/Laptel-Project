@@ -10,25 +10,31 @@ import '../css/searchpage.css'
 
 import { TiArrowBackOutline } from 'react-icons/ti'
 import axios from 'axios';
+import Loader from '../components/Loader';
 
 function ProductPage() {
 
     const [listOfLaptops, setListOfLaptops] = useState([]);
+    const [loaderStatus, setLoaderStatus] = useState(true);
     const [errorStatus, setErrorStatus] = useState();
     const location = useLocation();
 
-    useEffect(() => {
-        axios.get('/search/', {
+    const getData = async () => {
+        const response = await axios.get('http://3.109.154.245/search/', {
             params: {
                 category: location.state.user_category, budget: location.state.user_budget,
-            },
-        }).then(res => {
-            setErrorStatus(res.status);
-            setListOfLaptops(res.data);
-        }).catch(error => {
-            setErrorStatus(error.response.status);
-        })
-    }, [errorStatus]);
+            }
+        });
+        setErrorStatus(response.status);
+        setListOfLaptops(response.data);
+    };
+
+    useEffect(() => {
+        getData();
+        setTimeout(() => {
+            setLoaderStatus(!loaderStatus);
+        }, 5000)
+    }, []);
 
     const history = useHistory();
     const routeChange = () => {
@@ -74,24 +80,31 @@ function ProductPage() {
                                         </div>
                                     </>
                                     :
-                                    <div className="SearchRectBOX p-5 mb-10 grid grid-cols-4 gap-4">
-                                        {
-                                            listOfLaptops.map((laptop) => {
-                                                return (
-                                                    <>
-                                                        <LaptopCard
-                                                            Laptop={laptop}
-                                                            user_category={location.state.user_category}
-                                                            user_budget={location.state.user_budget}
-                                                            maxScore={listOfLaptops[0].score}
-                                                            minScore={listOfLaptops[listOfLaptops.length - 1].score}
-                                                            BtnShow = {laptop.similar.length == 0 || location.state.user_category == 'Gaming' ? false : true}
-                                                        />
-                                                    </>
-                                                )
-                                            })
-                                        }
-                                    </div>
+                                    loaderStatus ?
+                                        <div className='SearchRectBOX p-5 '>
+                                            <center>
+                                                <Loader />
+                                            </center>
+                                        </div>
+                                        :
+                                        <div className="SearchRectBOX p-5 mb-10 grid grid-cols-4 gap-4">
+                                            {
+                                                listOfLaptops.map((laptop) => {
+                                                    return (
+                                                        <>
+                                                            <LaptopCard
+                                                                Laptop={laptop}
+                                                                user_category={location.state.user_category}
+                                                                user_budget={location.state.user_budget}
+                                                                maxScore={listOfLaptops[0].score}
+                                                                minScore={listOfLaptops[listOfLaptops.length - 1].score}
+                                                                BtnShow={laptop.similar.length == 0 || location.state.user_category == 'Gaming' ? false : true}
+                                                            />
+                                                        </>
+                                                    )
+                                                })
+                                            }
+                                        </div>
                     }
                 </div>
             </div>
